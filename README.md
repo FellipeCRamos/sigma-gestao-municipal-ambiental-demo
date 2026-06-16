@@ -1,18 +1,18 @@
-# SIGMA - Sistema Integrado de Gestao Municipal Ambiental
+# SIGMA – Sistema Integrado de Gestão Municipal Ambiental
 
-Este repositorio contem uma versao publica sanitizada do **SIGMA - Sistema Integrado de Gestao Municipal Ambiental**, aplicacao web desenvolvida como demonstracao academica para a disciplina de Estagio Supervisionado - Atividade Pratica Profissional do curso de Analise e Desenvolvimento de Sistemas.
+Este repositório contém uma versão pública sanitizada do **SIGMA – Sistema Integrado de Gestão Municipal Ambiental**, aplicação web desenvolvida como demonstração acadêmica para a disciplina de Estágio Supervisionado – Atividade Prática Profissional do curso de Análise e Desenvolvimento de Sistemas.
 
 ## Objetivo
 
-Demonstrar uma aplicacao web modular voltada ao apoio de rotinas de gestao municipal ambiental, incluindo modulos como demandas publicas, licenciamento ambiental, bem-estar animal, controle de acesso e area administrativa.
+Demonstrar uma aplicação web modular voltada ao apoio de rotinas de gestão municipal ambiental, incluindo módulos de demandas públicas, licenciamento ambiental, bem-estar animal, controle de acesso e área administrativa.
 
 ## SIGBA
 
-O **SIGBA - Sistema Integrado de Gestao do Bem-Estar Animal** e tratado nesta versao como modulo interno do SIGMA, voltado a organizacao de rotinas relacionadas ao bem-estar animal.
+O **SIGBA – Sistema Integrado de Gestão do Bem-Estar Animal** é tratado, nesta versão, como módulo interno do SIGMA, voltado à organização de rotinas relacionadas ao bem-estar animal.
 
-## Aviso de sanitizacao
+## Aviso de sanitização
 
-Este repositorio e uma versao publica sanitizada, criada exclusivamente para fins academicos. Nao se trata de sistema em producao, homologado ou oficialmente adotado por orgao publico. Dados, marcas, rotas, telas, documentos e conteudos foram adaptados, removidos ou substituidos para preservar seguranca institucional e privacidade.
+Este repositório é uma versão pública sanitizada, criada exclusivamente para fins acadêmicos. Dados, marcas, rotas, telas, documentos e conteúdos foram adaptados, removidos ou substituídos para preservar a segurança institucional e a privacidade.
 
 ## Tecnologias
 
@@ -26,16 +26,20 @@ Este repositorio e uma versao publica sanitizada, criada exclusivamente para fin
 - PostgreSQL
 - JWT/RBAC
 
-## Modulos demonstrativos
+## Módulos demonstrativos
 
-- Painel publico
-- Demandas e denuncias ambientais
+- Painel público
+- Demandas e denúncias ambientais
 - Assistente preliminar de licenciamento
 - Bem-estar animal
-- Area administrativa
-- Controle de autenticacao e permissoes
-- Gestao documental demonstrativa
+- Área administrativa
+- Controle de autenticação e permissões
+- Gestão documental demonstrativa
 - Fluxos administrativos simulados
+
+## Conformidade com o modelo ADS
+
+A aplicação foi estruturada como projeto web, atendendo às tecnologias obrigatórias indicadas no modelo de Atividade Prática Profissional ADS: HTML5, CSS3 e JavaScript/TypeScript. O projeto também utiliza tecnologias opcionais compatíveis com aplicações web, como React, Vite, Node.js, Express, PostgreSQL e API REST. A alternativa desktop, baseada em C# e Windows Forms ou WPF, não se aplica ao presente projeto, pois a solução foi definida como aplicação web.
 
 ## Como executar localmente
 
@@ -56,12 +60,12 @@ cp .env.example .env
 npm run dev
 ```
 
-Ajuste as variaveis do `.env` local conforme seu ambiente de desenvolvimento.
+Ajuste as variáveis do `.env` local conforme seu ambiente de desenvolvimento.
 
-## Limitacoes
+## Limitações
 
-A versao publica e demonstrativa e sanitizada. Nao contem dados reais, documentos institucionais, banco de producao, uploads, chaves ou credenciais. Algumas funcionalidades podem depender de banco local e dados ficticios para demonstracao completa.
+A versão pública é demonstrativa e sanitizada. Não contém dados reais, documentos institucionais, banco de dados real, uploads, chaves ou credenciais. Algumas funcionalidades podem depender de banco local e dados fictícios para demonstração completa.
 
-## Finalidade academica
+## Finalidade acadêmica
 
-Este repositorio foi preparado exclusivamente para comprovacao tecnica de Atividade Pratica Profissional ADS, demonstrando estrutura de frontend, backend, banco de dados, modulos, autenticacao, autorizacao e organizacao geral da aplicacao.
+Este repositório foi preparado exclusivamente para comprovação técnica de Atividade Prática Profissional ADS, demonstrando a estrutura de frontend, backend, banco de dados, módulos, autenticação, autorização e organização geral da aplicação.
