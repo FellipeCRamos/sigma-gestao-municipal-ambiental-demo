@@ -1,0 +1,37 @@
+import { PERMISSIONS } from '../../../utils/permissions';
+
+export const portalRequerenteLayoutConfig = {
+  moduleKey: 'portal-requerente',
+  platformName: 'Plataforma SIGMA',
+  brandBadge: 'PR',
+  brandSub: 'Portal do Requerente / Protocolo Externo Controlado',
+  pageTitle: 'Portal do Requerente',
+  pageSubtitle: 'Pre-protocolos externos em homologacao assistida',
+  environmentLabel: 'Area interna SMAD',
+  portalButtonLabel: 'Portal do Requerente',
+  publicButtonLabel: 'Painel SIGMA',
+  footerText: 'SMAD - Plataforma SIGMA / Portal do Requerente',
+  showPortalShortcut: true,
+  showPublicShortcut: true,
+  menuItems: [
+    { key: 'dashboard', label: 'Pre-protocolos', permission: PERMISSIONS.PORTAL_REQUERENTE_ADMIN_VISUALIZAR },
+  ],
+  theme: {
+    appBackground: '#f8fafc',
+    mainBackground: '#f8fafc',
+    contentBackground: 'linear-gradient(180deg, #f8fafc 0%, #f0fdfa 48%, #f8fafc 100%)',
+    sidebarBackground: 'linear-gradient(180deg, #0f172a 0%, #0f766e 100%)',
+    sidebarBorder: '#0f766e',
+    brandBackground: '#ccfbf1',
+    brandColor: '#0f172a',
+    brandSubColor: '#e0f2fe',
+    footerColor: '#dffbf5',
+    accent: '#0f766e',
+    navBackground: 'rgba(255,255,255,0.08)',
+    navBorder: 'rgba(255,255,255,0.14)',
+    navColor: '#f8fafc',
+    navActiveBackground: '#ffffff',
+    navActiveBorder: '#ffffff',
+    navActiveColor: '#0f766e',
+  },
+};

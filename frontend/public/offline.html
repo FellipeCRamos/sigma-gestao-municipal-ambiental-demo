@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1f6f43" />
+    <title>Plataforma SIGMA offline</title>
+    <style>
+      :root {
+        font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+        color: #111827;
+        background: #f3f4f6;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      main {
+        width: min(520px, 100%);
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .badge {
+        justify-self: start;
+        background: #111827;
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-weight: 700;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      p {
+        color: #4b5563;
+        line-height: 1.5;
+      }
+
+      button {
+        min-height: 44px;
+        border: 1px solid #1f6f43;
+        border-radius: 8px;
+        background: #1f6f43;
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: 700;
+        padding: 0 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="badge">SIGMA</span>
+      <h1>Sem conexao no momento</h1>
+      <p>
+        Os servicos publicos da Plataforma SIGMA precisam de conexao. Verifique a conexao e tente novamente.
+      </p>
+      <button type="button" onclick="window.location.reload()">Tentar novamente</button>
+    </main>
+  </body>
+</html>

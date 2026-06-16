@@ -1,0 +1,15 @@
+{
+  "name": "sigma-publico-sanitizado",
+  "version": "1.0.0",
+  "description": "Versao publica sanitizada do SIGMA para demonstracao academica",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm --prefix backend test && npm --prefix frontend run lint && npm --prefix frontend run build",
+    "test:backend": "npm --prefix backend test",
+    "test:frontend": "npm --prefix frontend run lint && npm --prefix frontend run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

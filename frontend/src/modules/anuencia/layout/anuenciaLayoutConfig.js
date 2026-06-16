@@ -1,0 +1,37 @@
+import { PERMISSIONS } from '../../../utils/permissions';
+
+export const anuenciaLayoutConfig = {
+  moduleKey: 'anuencia',
+  platformName: 'Plataforma SIGMA',
+  brandBadge: 'ANU',
+  brandSub: 'Modulo de Anuencia Ambiental Municipal',
+  pageTitle: 'Anuencia Ambiental',
+  pageSubtitle: 'Fluxo interno de homologacao assistida para pedidos de anuencia municipal',
+  environmentLabel: 'Area interna SMAD',
+  portalButtonLabel: 'Portal SIGMA',
+  publicButtonLabel: 'Painel SIGMA',
+  footerText: 'SMAD - Plataforma SIGMA / Anuencia Ambiental',
+  showPortalShortcut: false,
+  showPublicShortcut: false,
+  menuItems: [
+    { key: 'dashboard', label: 'Anuencias', permission: PERMISSIONS.ANUENCIA_VISUALIZAR },
+  ],
+  theme: {
+    appBackground: '#f0fdfa',
+    mainBackground: '#f0fdfa',
+    contentBackground: 'linear-gradient(180deg, #f0fdfa 0%, #f8fffd 42%, #eefcf8 100%)',
+    sidebarBackground: 'linear-gradient(180deg, #134e4a 0%, #0f766e 100%)',
+    sidebarBorder: '#0f766e',
+    brandBackground: '#ccfbf1',
+    brandColor: '#134e4a',
+    brandSubColor: '#dffbf5',
+    footerColor: '#dffbf5',
+    accent: '#0f766e',
+    navBackground: 'rgba(255,255,255,0.08)',
+    navBorder: 'rgba(255,255,255,0.14)',
+    navColor: '#f0fdfa',
+    navActiveBackground: '#ffffff',
+    navActiveBorder: '#ffffff',
+    navActiveColor: '#0f766e',
+  },
+};

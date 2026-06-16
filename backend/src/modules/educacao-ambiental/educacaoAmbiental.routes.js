@@ -1,0 +1,376 @@
+const express = require('express');
+
+const controller = require('./educacaoAmbiental.controller');
+const requirePermission = require('../../middlewares/requirePermission');
+const { PERMISSIONS } = require('../../config/permissions');
+
+const router = express.Router();
+
+router.get(
+  '/admin/dashboard',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_VISUALIZAR),
+  controller.getAdminDashboard
+);
+
+router.get(
+  '/admin/categorias',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_VISUALIZAR),
+  controller.listCategorias
+);
+
+router.get(
+  '/admin/curadoria/dashboard',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VISUALIZAR),
+  controller.getCuradoriaDashboard
+);
+router.get(
+  '/admin/curadoria/pendencias',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VISUALIZAR),
+  controller.listCuradoriaPendencias
+);
+router.get(
+  '/admin/curadoria/fontes',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VISUALIZAR),
+  controller.listCuradoriaFontes
+);
+router.post(
+  '/admin/curadoria/fontes',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_FONTES_GERENCIAR),
+  controller.createCuradoriaFonte
+);
+router.put(
+  '/admin/curadoria/fontes/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_FONTES_GERENCIAR),
+  controller.updateCuradoriaFonte
+);
+router.patch(
+  '/admin/curadoria/fontes/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_FONTES_GERENCIAR),
+  controller.updateCuradoriaFonteStatus
+);
+router.get(
+  '/admin/curadoria/referencias',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VISUALIZAR),
+  controller.listCuradoriaReferencias
+);
+router.post(
+  '/admin/curadoria/referencias',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_REFERENCIAS_GERENCIAR),
+  controller.createCuradoriaReferencia
+);
+router.put(
+  '/admin/curadoria/referencias/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_REFERENCIAS_GERENCIAR),
+  controller.updateCuradoriaReferencia
+);
+router.patch(
+  '/admin/curadoria/referencias/:id/arquivar',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_REFERENCIAS_GERENCIAR),
+  controller.archiveCuradoriaReferencia
+);
+router.patch(
+  '/admin/curadoria/conteudos/:id/status-curadoria',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_GERENCIAR),
+  controller.updateConteudoStatusCuradoria
+);
+router.patch(
+  '/admin/curadoria/conteudos/:id/validacao-tecnica',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VALIDAR_TECNICAMENTE),
+  controller.validarConteudoTecnicamente
+);
+router.patch(
+  '/admin/curadoria/conteudos/:id/validacao-juridica',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VALIDAR_JURIDICAMENTE),
+  controller.validarConteudoJuridicamente
+);
+router.patch(
+  '/admin/curadoria/conteudos/:id/apto-ia',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_IA_MARCAR_APTO),
+  controller.setConteudoAptoIa
+);
+router.patch(
+  '/admin/curadoria/conteudos/:id/apto-portal',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_PUBLICAR),
+  controller.setConteudoAptoPortal
+);
+router.get(
+  '/admin/curadoria/base-conhecimento-validada',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CURADORIA_VISUALIZAR),
+  controller.getBaseConhecimentoValidada
+);
+
+router.get(
+  '/admin/conteudos',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_VISUALIZAR),
+  controller.listConteudos
+);
+router.post(
+  '/admin/conteudos',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_CRIAR),
+  controller.createConteudo
+);
+router.get(
+  '/admin/conteudos/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_VISUALIZAR),
+  controller.getConteudo
+);
+router.put(
+  '/admin/conteudos/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_EDITAR),
+  controller.updateConteudo
+);
+router.patch(
+  '/admin/conteudos/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PUBLICAR),
+  controller.updateConteudoStatus
+);
+router.patch(
+  '/admin/conteudos/:id/arquivar',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_ARQUIVAR),
+  controller.archiveConteudo
+);
+
+router.get(
+  '/admin/normas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_NORMAS_GERENCIAR),
+  controller.listNormas
+);
+router.post(
+  '/admin/normas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_NORMAS_GERENCIAR),
+  controller.createNorma
+);
+router.get(
+  '/admin/normas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_NORMAS_GERENCIAR),
+  controller.getNorma
+);
+router.put(
+  '/admin/normas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_NORMAS_GERENCIAR),
+  controller.updateNorma
+);
+router.patch(
+  '/admin/normas/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_NORMAS_GERENCIAR),
+  controller.updateNormaStatus
+);
+
+router.get(
+  '/admin/agenda',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AGENDA_GERENCIAR),
+  controller.listAgenda
+);
+router.post(
+  '/admin/agenda',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AGENDA_GERENCIAR),
+  controller.createAgenda
+);
+router.get(
+  '/admin/agenda/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AGENDA_GERENCIAR),
+  controller.getAgenda
+);
+router.put(
+  '/admin/agenda/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AGENDA_GERENCIAR),
+  controller.updateAgenda
+);
+router.patch(
+  '/admin/agenda/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AGENDA_GERENCIAR),
+  controller.updateAgendaStatus
+);
+
+router.get(
+  '/admin/materiais',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_MATERIAIS_GERENCIAR),
+  controller.listMateriais
+);
+router.post(
+  '/admin/materiais',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_MATERIAIS_GERENCIAR),
+  controller.createMaterial
+);
+router.get(
+  '/admin/materiais/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_MATERIAIS_GERENCIAR),
+  controller.getMaterial
+);
+router.put(
+  '/admin/materiais/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_MATERIAIS_GERENCIAR),
+  controller.updateMaterial
+);
+router.patch(
+  '/admin/materiais/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_MATERIAIS_GERENCIAR),
+  controller.updateMaterialStatus
+);
+
+router.get(
+  '/admin/trilhas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.listTrilhas
+);
+router.post(
+  '/admin/trilhas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.createTrilha
+);
+router.get(
+  '/admin/trilhas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.getTrilha
+);
+router.put(
+  '/admin/trilhas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.updateTrilha
+);
+router.patch(
+  '/admin/trilhas/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.updateTrilhaStatus
+);
+router.post(
+  '/admin/trilhas/:id/aulas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.createAula
+);
+router.put(
+  '/admin/trilhas/:id/aulas/:aulaId',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_TRILHAS_GERENCIAR),
+  controller.updateAula
+);
+
+router.get(
+  '/admin/especies',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_BIODIVERSIDADE_GERENCIAR),
+  controller.listEspecies
+);
+router.post(
+  '/admin/especies',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_BIODIVERSIDADE_GERENCIAR),
+  controller.createEspecie
+);
+router.get(
+  '/admin/especies/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_BIODIVERSIDADE_GERENCIAR),
+  controller.getEspecie
+);
+router.put(
+  '/admin/especies/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_BIODIVERSIDADE_GERENCIAR),
+  controller.updateEspecie
+);
+router.patch(
+  '/admin/especies/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_BIODIVERSIDADE_GERENCIAR),
+  controller.updateEspecieStatus
+);
+
+router.get(
+  '/admin/areas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AREAS_GERENCIAR),
+  controller.listAreas
+);
+router.post(
+  '/admin/areas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AREAS_GERENCIAR),
+  controller.createArea
+);
+router.get(
+  '/admin/areas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AREAS_GERENCIAR),
+  controller.getArea
+);
+router.put(
+  '/admin/areas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AREAS_GERENCIAR),
+  controller.updateArea
+);
+router.patch(
+  '/admin/areas/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_AREAS_GERENCIAR),
+  controller.updateAreaStatus
+);
+
+router.get(
+  '/admin/programas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.listProgramas
+);
+router.post(
+  '/admin/programas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.createPrograma
+);
+router.get(
+  '/admin/programas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.getPrograma
+);
+router.put(
+  '/admin/programas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.updatePrograma
+);
+router.patch(
+  '/admin/programas/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.updateProgramaStatus
+);
+router.get(
+  '/admin/metas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.listMetas
+);
+router.post(
+  '/admin/metas',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.createMeta
+);
+router.get(
+  '/admin/metas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.getMeta
+);
+router.put(
+  '/admin/metas/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.updateMeta
+);
+router.patch(
+  '/admin/metas/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PROGRAMAS_GERENCIAR),
+  controller.updateMetaStatus
+);
+
+router.get(
+  '/admin/faq',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_EDITAR),
+  controller.listFaq
+);
+router.post(
+  '/admin/faq',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_EDITAR),
+  controller.createFaq
+);
+router.get(
+  '/admin/faq/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_EDITAR),
+  controller.getFaq
+);
+router.put(
+  '/admin/faq/:id',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_EDITAR),
+  controller.updateFaq
+);
+router.patch(
+  '/admin/faq/:id/status',
+  requirePermission(PERMISSIONS.EDUCACAO_AMBIENTAL_PUBLICAR),
+  controller.updateFaqStatus
+);
+
+module.exports = router;
