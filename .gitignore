@@ -9,6 +9,8 @@ FALSE_POSITIVE_REVIEW.md
 .env
 .env.*
 *.env
+!.env.example
+!backend/.env.example
 
 *.log
 *.pid
