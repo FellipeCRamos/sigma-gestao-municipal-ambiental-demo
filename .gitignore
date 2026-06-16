@@ -3,6 +3,9 @@ dist/
 build/
 coverage/
 
+SECURITY_SCAN_RAW.txt
+FALSE_POSITIVE_REVIEW.md
+
 .env
 .env.*
 *.env

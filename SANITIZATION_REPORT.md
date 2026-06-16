@@ -47,14 +47,14 @@ Registrar as medidas adotadas para criacao da versao publica sanitizada do SIGMA
 - Frontend publico sanitizado: `npm install`, `npm run build`, `npm run lint` e `npm audit` aprovados novamente apos os ajustes finais, com 0 vulnerabilidades.
 - Backend publico sanitizado: `npm install`, `npm test` e `npm audit` aprovados novamente apos os ajustes finais, com 0 vulnerabilidades.
 - Backend publico sanitizado: scripts `lint` e `build` nao estao disponiveis no `package.json`.
-- Revisao de falsos positivos criada em `FALSE_POSITIVE_REVIEW.md`.
+- Revisao interna de falsos positivos concluida; arquivos brutos e detalhados de auditoria foram removidos antes da publicacao.
 
 ## Resultado das varreduras
 
 - Varredura institucional por nomes, dominios, e-mails especificos e nomes de arquivos: sem ocorrencias nos arquivos finais do pacote publico.
 - Varredura de arquivos proibidos: sem `node_modules`, `dist`, `build`, uploads, logs, PIDs, bancos, dumps ou backups na pasta final; apenas `.env.example` e `backend/.env.example`, mantidos como templates ficticios exigidos para publicacao.
 - `.env.example` e `backend/.env.example` contem apenas valores ficticios de desenvolvimento local.
-- Varredura ampla solicitada: 547 linhas revisadas em `SECURITY_SCAN_RAW.txt`.
+- Varredura ampla interna: 547 linhas revisadas antes da remocao dos arquivos brutos/detalhados de auditoria.
 - Falsos positivos tecnicos classificados: 537.
 - Dados demonstrativos genericos classificados: 10.
 - Substituicoes registradas: 6.
@@ -65,6 +65,7 @@ Registrar as medidas adotadas para criacao da versao publica sanitizada do SIGMA
 
 - Git inicializado localmente nesta pasta.
 - Commit local criado nesta etapa com o conteudo final sanitizado.
+- Arquivos internos de auditoria bruta/detalhada removidos da versao publica e adicionados ao `.gitignore`.
 - GitHub nao foi publicado nesta maquina porque o `gh` CLI nao esta instalado ou disponivel no PATH.
 - Repositorio remoto publico sugerido: `sigma-gestao-municipal-ambiental-demo`.
 - A pasta esta preparada localmente em `C:\Users\Samira\Documents\SIGMA_PUBLICO_SANITIZADO`.
