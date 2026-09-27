@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+# saidas de teste locais (os testes usam pastas temporarias; isto e so garantia)
+saida_*/
+dados_teste/
