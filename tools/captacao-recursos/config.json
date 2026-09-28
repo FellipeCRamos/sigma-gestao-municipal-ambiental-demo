@@ -1,0 +1,63 @@
+{
+  "$comentario": "Parametros da coleta. Os eixos definem o que conta como area ambiental; ajuste termos sem mexer no codigo.",
+  "eixosAmbientais": {
+    "Residuos solidos": ["RESIDUO", "LIXO", "LIXAO", "ATERRO SANITARIO", "RECICL", "COLETA SELETIVA", "COMPOSTAG", "CATADOR", "LOGISTICA REVERSA"],
+    "Saneamento e agua": ["SANEAMENTO", "ESGOT", "ABASTECIMENTO DE AGUA", "RECURSOS HIDRICOS", "HIDRIC", "BACIA HIDROGRAFICA", "NASCENTE", "MANANCIA", "SEGURANCA HIDRICA"],
+    "Drenagem, encostas e riscos": ["DRENAGEM", "ENCOSTA", "EROSAO", "DESASTRE", "DEFESA CIVIL", "INUNDA", "ENCHENTE", "ALAGAMENTO", "CONTENCAO", "AREAS DE RISCO"],
+    "Clima e energia": ["CLIMA", "CLIMATIC", "CARBONO", "RENOVAV", "FOTOVOLTAIC", "ENERGIA SOLAR", "EFICIENCIA ENERGETICA", "ADAPTACAO"],
+    "Florestas e biodiversidade": ["FLOREST", "REFLOREST", "FLORA", "FAUNA", "BIODIVERS", "ARBORIZ", "ARVORE", "MUDAS", "VIVEIRO", "MATA ATLANTICA", "VEGETACAO NATIVA", "AREAS DEGRADADAS", "RECUPERACAO AMBIENTAL", "UNIDADE DE CONSERVACAO", "UNIDADES DE CONSERVACAO", "PARQUE NATURAL", "CORREDOR ECOLOGICO", "SERVICOS AMBIENTAIS"],
+    "Costeiro e orla": ["ORLA", "PRAIA", "COSTEIR", "MANGUE", "RESTINGA"],
+    "Bem-estar animal": ["ANIMAL", "ANIMAIS", "CASTRA", "ZOONOS", "CAES", "GATOS", "CONTROLE POPULACIONAL", "MANEJO POPULACIONAL"],
+    "Gestao e educacao ambiental": ["MEIO AMBIENTE", "AMBIENT", "SUSTENTA", "LICENCIAMENTO", "AGROECOLOG", "IBAMA", "CHICO MENDES"]
+  },
+  "expressoesExcluidas": ["SANIDADE ANIMAL", "PRODUCAO ANIMAL", "DEFESA AGROPECUARIA", "PECUARIA", "PARQUE TECNOLOGICO", "PARQUE DE EXPOSICAO"],
+  "transferegov": {
+    "$comentario": "Dados abertos do Transferegov (antigo SICONV / Plataforma +Brasil), atualizados diariamente.",
+    "base": "https://repositorio.dados.gov.br/seges/detru/",
+    "arquivos": {
+      "programa": "siconv_programa.csv.zip",
+      "programaProposta": "siconv_programa_proposta.csv.zip",
+      "proposta": "siconv_proposta.csv.zip",
+      "convenio": "siconv_convenio.csv.zip",
+      "emenda": "siconv_emenda.csv.zip"
+    }
+  },
+  "transferenciasEspeciais": {
+    "$comentario": "API publica das emendas 'PIX' (transferencias especiais, art. 166-A da CF).",
+    "base": "https://api.transferegov.gestao.gov.br/transferenciasespeciais",
+    "tabela": "plano_acao_especial",
+    "tamanhoPagina": 1000
+  },
+  "portalTransparencia": {
+    "$comentario": "Opcional. Requer chave gratuita em https://portaldatransparencia.gov.br/api-de-dados/cadastrar-email na variavel de ambiente indicada.",
+    "base": "https://api.portaldatransparencia.gov.br/api-de-dados",
+    "variavelChave": "PORTAL_TRANSPARENCIA_CHAVE",
+    "intervaloMs": 800
+  },
+  "ckan": {
+    "$comentario": "Portais CKAN de dados abertos (estado e tribunal de contas). As linhas que citam o municipio sao extraidas.",
+    "portais": [
+      {
+        "nome": "Dados Abertos do Estado",
+        "base": "https://dados.es.gov.br",
+        "consultas": ["convenio municipio", "transferencia voluntaria", "transferencias municipios", "fundo cidades", "emenda parlamentar", "reflorestar", "meio ambiente"]
+      },
+      {
+        "nome": "Tribunal de Contas do Estado",
+        "base": "https://dados.tce.es.gov.br",
+        "consultas": ["convenio", "transferencia", "receita municipal", "despesa municipal"]
+      }
+    ],
+    "resultadosPorConsulta": 20,
+    "tamanhoMaximoMb": 300
+  },
+  "cenarioSistema": {
+    "$comentario": "Premissas do cenario contrafactual 'com sistema de gestao'. Cobertura = fracao das oportunidades elegiveis que seriam pleiteadas com monitoramento ativo; reducaoPerdas = fracao das perdas (rejeicao, cancelamento, anulacao) evitaveis com controle de prazos, pendencias e clausula suspensiva. A chance de aprovacao de cada oportunidade vem da taxa observada entre municipios da mesma UF.",
+    "cenarios": {
+      "Conservador": { "cobertura": 0.4, "reducaoPerdas": 0.3 },
+      "Moderado": { "cobertura": 0.65, "reducaoPerdas": 0.5 },
+      "Otimista": { "cobertura": 0.85, "reducaoPerdas": 0.7 }
+    },
+    "taxaAprovacaoPadrao": 0.35
+  }
+}

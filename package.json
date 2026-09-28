@@ -4,9 +4,11 @@
   "description": "Versao publica sanitizada do SIGMA para demonstracao academica",
   "main": "index.js",
   "scripts": {
-    "test": "npm --prefix backend test && npm --prefix frontend run lint && npm --prefix frontend run build",
+    "test": "npm --prefix backend test && npm --prefix frontend run lint && npm --prefix frontend run build && npm run test:captacao",
     "test:backend": "npm --prefix backend test",
-    "test:frontend": "npm --prefix frontend run lint && npm --prefix frontend run build"
+    "test:frontend": "npm --prefix frontend run lint && npm --prefix frontend run build",
+    "test:captacao": "node --test \"tools/captacao-recursos/test/*.test.mjs\"",
+    "captacao": "node tools/captacao-recursos/captacao.mjs"
   },
   "keywords": [],
   "author": "",

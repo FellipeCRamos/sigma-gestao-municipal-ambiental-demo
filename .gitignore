@@ -37,3 +37,6 @@ Thumbs.db
 
 .vscode/
 .idea/
+
+# Saidas da ferramenta de captacao (dados reais de municipios)
+saida-captacao/
